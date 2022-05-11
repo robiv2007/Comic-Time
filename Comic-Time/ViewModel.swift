@@ -24,11 +24,13 @@ struct ComicStructure: Codable {
 
 class ViewModel: ObservableObject{
     
-    @Published var titleValue = String()
-    @Published var imageValue = String()
+    @Published var comicTitle = String()
+    @Published var comicImage = String()
     @Published var numberInput = String()
-    @Published var number = Int()
-
+    @Published var comicNumber = Int()
+    @Published var comicContent = String()
+    private var currentComicNumber = Int()
+    
     func fetchAPI(){
         guard let url = URL(string: "https://xkcd.com/\(numberInput)/info.0.json") else {
             return
@@ -40,12 +42,16 @@ class ViewModel: ObservableObject{
                 if let decoder = try? JSONDecoder().decode(ComicStructure.self, from: data){
                     
                     DispatchQueue.main.async {
-                    self.titleValue = decoder.title
-                    self.imageValue = decoder.img
-                    
-                    print("TITLE",self.titleValue)
-                    print("IMAGE",self.imageValue)
-                       
+                        self.comicTitle = decoder.title
+                        self.comicImage = decoder.img
+                        self.comicNumber = decoder.num
+                        self.currentComicNumber = decoder.num
+                        self.comicContent = decoder.alt
+                        
+                        
+                        print("TITLE",self.comicTitle)
+                        print("IMAGE",self.comicImage)
+                        
                     }
                 }
             }
@@ -56,7 +62,8 @@ class ViewModel: ObservableObject{
     
     
     func fetchAPIRandom(){
-        let randomNumber = Int.random(in: 1..<2500)
+        // random between comic number one and currentNumber
+        let randomNumber = Int.random(in: 1..<currentComicNumber)
         guard let url = URL(string: "https://xkcd.com/\(randomNumber)/info.0.json") else {
             return
         }
@@ -67,13 +74,14 @@ class ViewModel: ObservableObject{
                 if let decoder = try? JSONDecoder().decode(ComicStructure.self, from: data){
                     
                     DispatchQueue.main.async {
-                    self.titleValue = decoder.title
-                    self.imageValue = decoder.img
-                    self.number = decoder.num
-                    
-                    print("TITLE",self.titleValue)
-                    print("IMAGE",self.imageValue)
-                       
+                        self.comicTitle = decoder.title
+                        self.comicImage = decoder.img
+                        self.comicNumber = decoder.num
+                        self.comicContent = decoder.alt
+                        
+                        print("TITLE",self.comicTitle)
+                        print("IMAGE",self.comicImage)
+                        
                     }
                 }
             }
