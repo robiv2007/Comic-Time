@@ -32,10 +32,11 @@ class ViewModel: ObservableObject{
     private var currentComicNumber = Int()
     
     func fetchAPI(){
+        //url based on the input number
         guard let url = URL(string: "https://xkcd.com/\(numberInput)/info.0.json") else {
             return
         }
-        
+        //get the api data and save it in different variables
         URLSession.shared.dataTask(with: url){data, _, error in
             if let data = data {
                 print("DATA",data)
@@ -62,7 +63,7 @@ class ViewModel: ObservableObject{
     
     
     func fetchAPIRandom(){
-        // random between comic number one and currentNumber
+        // get the data with a random between comic number one and currentNumber
         let randomNumber = Int.random(in: 1..<currentComicNumber)
         guard let url = URL(string: "https://xkcd.com/\(randomNumber)/info.0.json") else {
             return
@@ -71,6 +72,7 @@ class ViewModel: ObservableObject{
         URLSession.shared.dataTask(with: url){data, _, error in
             if let data = data {
                 print("DATA",data)
+                //decoding the JSON data based on the api structure
                 if let decoder = try? JSONDecoder().decode(ComicStructure.self, from: data){
                     
                     DispatchQueue.main.async {

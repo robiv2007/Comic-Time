@@ -24,6 +24,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
                 
                 Button(action: {
+                    //fetch api based on the input number
                     viewModel.fetchAPI()
                     viewModel.numberInput = ""
                 }, label: {
@@ -46,7 +47,7 @@ struct ContentView: View {
                     Text("Comic nr: \(viewModel.comicNumber)")
                         .font(.title3)
                         .bold()
-                    
+                    //Link to the explanation web page based on the current comic number
                     Link("Explanation",destination: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(viewModel.comicNumber)")!)
                         .foregroundColor(.red)
                         .font(.title3)
@@ -71,6 +72,7 @@ struct ContentView: View {
                 
             }
             Button(action: {
+                //fetching of the random comic
                 viewModel.fetchAPIRandom()
             }, label: {
                 Text("Random")
