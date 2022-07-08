@@ -15,6 +15,7 @@
 		B32FD27D28295625009674EF /* Comic_TimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FD27C28295625009674EF /* Comic_TimeUITests.swift */; };
 		B32FD27F28295625009674EF /* Comic_TimeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FD27E28295625009674EF /* Comic_TimeUITestsLaunchTests.swift */; };
 		B32FD28C282980C5009674EF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FD28B282980C4009674EF /* ViewModel.swift */; };
+		B3DB369828783CF9003F1485 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB369728783CF9003F1485 /* WebView.swift */; };
 		B3EA9A7D282AF5E7001EB789 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA9A7C282AF5E7001EB789 /* WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		B32FD27C28295625009674EF /* Comic_TimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic_TimeUITests.swift; sourceTree = "<group>"; };
 		B32FD27E28295625009674EF /* Comic_TimeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic_TimeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B32FD28B282980C4009674EF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		B3DB369728783CF9003F1485 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		B3EA9A7C282AF5E7001EB789 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B3EA9A7E282C18DF001EB789 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 				B32FD26728295624009674EF /* Preview Content */,
 				B32FD28B282980C4009674EF /* ViewModel.swift */,
 				B3EA9A7C282AF5E7001EB789 /* WelcomeView.swift */,
+				B3DB369728783CF9003F1485 /* WebView.swift */,
 			);
 			path = "Comic-Time";
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B32FD2642829561D009674EF /* ContentView.swift in Sources */,
+				B3DB369828783CF9003F1485 /* WebView.swift in Sources */,
 				B32FD28C282980C5009674EF /* ViewModel.swift in Sources */,
 				B32FD2622829561D009674EF /* Comic_TimeApp.swift in Sources */,
 				B3EA9A7D282AF5E7001EB789 /* WelcomeView.swift in Sources */,

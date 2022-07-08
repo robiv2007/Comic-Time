@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     
     @StateObject var viewModel = ViewModel()
+    @State private var showWebView = false
     
     var body: some View {
         VStack{
@@ -47,13 +49,19 @@ struct ContentView: View {
                     Text("Comic nr: \(viewModel.comicNumber)")
                         .font(.title3)
                         .bold()
-                    //Link to the explanation web page based on the current comic number
-                    Link("Explanation",destination: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(viewModel.comicNumber)")!)
-                        .foregroundColor(.red)
-                        .font(.title3)
-                        .padding(5)
-                        .border(Color.red, width: 3)
                     
+                    Button(action: {
+                        showWebView.toggle()
+                    }, label: {
+                        Text("Explanation")
+                            .foregroundColor(.red)
+                            .font(.title3)
+                            .padding(5)
+                            .border(Color.red, width: 3)
+                        
+                    })
+                    .sheet(isPresented: $showWebView){ WebView(url: URL(string: "https://www.explainxkcd.com/wiki/index.php/\(viewModel.comicNumber)")!)
+                    }
                 }
                 .padding()
                 
